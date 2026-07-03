@@ -1,0 +1,64 @@
+{
+  "XGBoost_50_trials": {
+    "_best_trial": 40,
+    "max_depth": 6,
+    "learning_rate": 0.01646338725108453,
+    "n_estimators": 471,
+    "min_child_weight": 4,
+    "subsample": 0.5287942212625109,
+    "colsample_bytree": 0.557288672298357,
+    "gamma": 0.1433760901202984,
+    "reg_lambda": 0.11347174478637617,
+    "reg_alpha": 0.8791225318788727
+  },
+  "XGBoost_400_trials": {
+    "_best_trial": 334,
+    "n_estimators": 1834,
+    "max_depth": 11,
+    "learning_rate": 0.004854856793781717,
+    "subsample": 0.40566526847932777,
+    "colsample_bytree": 0.3968091211824199,
+    "gamma": 1.4684181309759596,
+    "min_child_weight": 2,
+    "reg_alpha": 0.9001406603742224,
+    "reg_lambda": 0.23250578488239765
+  },
+  "CatBoost": {
+    "_best_trial": 34,
+    "iterations": 468,
+    "learning_rate": 0.013714778651531173,
+    "depth": 6,
+    "l2_leaf_reg": 1.2648502968627125e-05,
+    "border_count": 201
+  },
+  "LightGBM": {
+    "_best_trial": 32,
+    "num_leaves": 138,
+    "learning_rate": 0.01405669721982889,
+    "n_estimators": 425,
+    "min_child_samples": 23,
+    "subsample": 0.7826656508469495,
+    "colsample_bytree": 0.6348504347088767,
+    "reg_alpha": 0.9994237846782444,
+    "reg_lambda": 0.9940731906006898
+  },
+  "RandomForest": {
+    "_note": "hardcoded best; winning trial not recorded",
+    "n_estimators": 942,
+    "max_depth": 19,
+    "min_samples_split": 12,
+    "min_samples_leaf": 5,
+    "max_features": 1.0,
+    "bootstrap": true
+  },
+  "SVR": {
+    "_best_trial": 34,
+    "kernel": "rbf",
+    "C": 1.441814588208259,
+    "epsilon": 0.37064901603771033,
+    "gamma": "auto"
+  },
+  "LinearModels": {
+    "_note": "LassoCV/RidgeCV/ElasticNetCV selected via internal CV; alpha grid [0.001,100], l1_ratio [0.1,0.9], 6-fold TimeSeriesSplit; best coefficients not separately saved"
+  }
+}
