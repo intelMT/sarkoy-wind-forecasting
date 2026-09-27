@@ -1,72 +1,85 @@
-# Next-Day Mean Wind Speed Forecasting at Şarköy, Türkiye — Code and Derived Results
+# Next-Day Mean Wind Speed Forecasting at Şarköy, Türkiye — code and derived results
 
-This repository accompanies the manuscript *"Next-Day Mean Wind Speed Forecasting in a
-High-Variability Coastal Microclimate: An Explainable Gradient-Boosting Benchmark and
-Predictability Analysis for Şarköy, Türkiye"* (Tan, Çetinceviz, & Gürdal), submitted to
-*JGR: Atmospheres*.
+This repository accompanies the article *"Next-Day Mean Wind Speed Forecasting in a High-Variability
+Coastal Microclimate: An Explainable Gradient-Boosting Benchmark and Predictability Analysis for Şarköy,
+Türkiye"* by M. Tan, Y. Çetinceviz and M. Gürdal, *Sustainable Energy Technologies and Assessments*
+(manuscript SETA-D-26-05002).
 
-It contains the analysis code and the derived model outputs needed to evaluate and reproduce
-the reported results. The raw meteorological station records are NOT included; see *Data
-availability* below.
+The target is the mean wind speed of the next calendar day at Şarköy. The forecast origin is 00:00 local
+time (UTC+3) at the end of day *t*, so lead times run from 0 to 24 h across day *t*+1. The modelling
+matrix covers 2,964 consecutive days, 19 November 2016 to 30 December 2024, with 559 predictors built
+from the Şarköy station, the Ganos station and sixteen stations of the Trakya network.
 
-## Contents
+The raw station records are not included (see *Data*).
 
-    features.ipynb        Feature engineering: builds the 559-predictor daily matrix from the
-                          raw station records (df_FE1 … df_FE8 → df_final_features.feather).
-    modelling.ipynb       Model training, Optuna hyperparameter optimization, and evaluation
-                          for the baselines, linear models, SVR, and tree ensembles.
-    visualization.ipynb   Figures (performance bars, predicted-vs-observed series, SHAP) and
-                          the SHAP interpretability analysis.
+## Versions
 
-    (The notebooks contain only the models reported in the paper — baselines, linear models,
-    SVR, and the tree ensembles, plus the permutation-importance and SHAP analyses. Exploratory
-    deep-learning experiments that are not part of the manuscript have been removed.)
+* **v2.0.0** adds the notebooks of the revised article in `revision/`: a leakage-free rebuild of the
+  predictor matrix (forward-only gap filling, statistics fitted before the first test year), a nested
+  rolling-origin evaluation over 2020–2024, block-bootstrap intervals and Diebold–Mariano tests, the
+  predictor ablation, out-of-sample attribution, high-wind scores and the LSTM search. It also corrects
+  the rolling windows in `features.ipynb` to 3, 7, 14, 21 and 30 days, the set used by the reported
+  models, and adds `requirements.txt`.
+* **v1** holds the notebooks and outputs of the original submission (root folder).
 
-    model_results.csv     Train / validation / test metrics (RMSE, MAE, R², MaxAE) for every
-                          model reported in Table 4 and Figure 4. One row per model per split.
-    predictions/          Per-day next-day predictions for the best model (train / validation /
-                          test); these back Figures 5 and 7.
-    feature_importances_rf.csv    Random-Forest importances (Table 5).
-    xgboost_feature_importance.csv Gain importances of the final XGBoost model (Table 6).
-    vif_results.csv       Variance-inflation results for the feature-selection step (Section 2.4).
-    models/               Trained model objects (joblib); the final tuned XGBoost is
-                          xgboost_hpo.joblib.
-    best_params.json      Optuna-selected hyperparameters for every tuned model (Appendix B).
-    table5_permutation_importance_rf.csv   Random-Forest permutation importances (eli5) — Table 5.
+## Layout
 
-## Environment
+| Path | Content |
+|---|---|
+| `features.ipynb` | Builds the 559-predictor matrix (`df_final_features.feather`) from the raw records |
+| `modelling.ipynb`, `visualization.ipynb` | Models, Optuna searches and figures of the original submission |
+| `model_results.csv`, `predictions/`, `models/`, `best_params.json`, `*importance*.csv`, `vif_results.csv` | Outputs of the original submission |
+| `revision/revision_utils.py` | Shared helpers: feature groups, model factory, bootstrap, Diebold–Mariano test, month-wise scaling, results store |
+| `revision/notebooks/06_audit_calendar_and_leakage.ipynb` | Calendar and one-day-offset audit, coverage by station and variable, gap list, feature availability |
+| `revision/notebooks/07_leakage_free_rebuild_and_holdout.ipynb` | Leakage-free matrix, 2024 hold-out table, imputation sensitivity |
+| `revision/notebooks/07b_lstm_hpo.ipynb` | LSTM search on the leakage-free matrix (400 TPE trials, seed 42; five-seed final fits) |
+| `revision/notebooks/08_nested_rolling_origin.ipynb` | Frozen pipeline over five outer test years; all selection inside each training window |
+| `revision/notebooks/09_uncertainty_and_significance.ipynb` | Moving-block bootstrap, Diebold–Mariano tests, residual diagnostics |
+| `revision/notebooks/10_ablation_and_feature_count.ipynb` | Ablation ladder, regional-only and physics-guided subsets, error against predictor count |
+| `revision/notebooks/11_xai_out_of_sample.ipynb` | Held-out permutation importance, gain, SHAP, grouped importance, stability across years |
+| `revision/notebooks/12_high_wind_events.ipynb` | High-wind thresholds and scores (bias, RMSE, attenuation, POD, FAR, CSI, AUC) |
+| `revision/notebooks/13_map_diagram_graphical_abstract.ipynb` | Station map, design diagram, graphical abstract |
+| `revision/notebooks/14_final_figures.ipynb` | Final versions of the article figures |
+| `revision/tables/` | Every table written by the notebooks, including the 559-row feature-availability table and the list of gaps |
+| `revision/logs/` | Library versions recorded by each notebook run |
+| `revision/station_metadata.csv` | Station identifiers, coordinates, elevations and distances |
 
-Developed in Google Colab (Python 3.x). Key packages: numpy, pandas, scikit-learn, xgboost,
-lightgbm, catboost, optuna, shap, statsmodels, matplotlib, seaborn, pyarrow (for .feather).
-Random seed 42 is set throughout. Exact versions are listed in `requirements.txt`.
+## Running
 
-## How to reproduce
+The notebooks were written for Google Colab and expect the Drive folder `MyDrive/windforecast_rev1/`
+(set the environment variable `SARKOY_BASE` to use another folder):
 
-1. Obtain the raw daily station records from the Turkish State Meteorological Service (MGM;
-   see *Data availability*) and place them under `data/`.
-2. Run `features.ipynb` to regenerate `df_final_features.feather`.
-3. Run `modelling.ipynb` to retrain the models and regenerate `model_results.csv` and the
-   predictions.
-4. Run `visualization.ipynb` to regenerate the figures and the SHAP analysis.
+```
+windforecast_rev1/
+├── data/                       # raw MGM exports (not redistributable)
+├── features.ipynb
+└── revision/
+    ├── revision_utils.py
+    ├── figures/  tables/  logs/
+    └── station_metadata.csv
+```
 
-Because the raw records are access-restricted, the deposited `model_results.csv`, predictions,
-importances, and trained models let reviewers verify the reported numbers and regenerate the
-figures without re-running training.
+Run order: 06 → 07 → 07b → 08 → 09 → 10 → 11 → 12 → 13 → 14. Each notebook writes the numbers it
+produces to `revision/results_NN.json`. Notebook 08 is the long one (about 40–60 min per outer year on a
+Colab GPU) and resumes from the last completed year. Outside Colab, install the pinned versions with
+`pip install -r requirements.txt`.
 
-## Data availability
+The hold-out models use the hyperparameters of the original searches (`best_params.json`); those
+searches ran with an unseeded Optuna TPE sampler. The rolling-origin and LSTM searches fix the sampler
+seed at 42.
 
-The raw daily meteorological station records (Şarköy, Ganos, and the eleven Trakya-network
-stations) were provided by the Turkish State Meteorological Service (MGM,
-https://www.mgm.gov.tr) under an agreement that does not permit their redistribution.
-Equivalent records can be requested directly from MGM. The engineered feature matrix
-(`df_final_features.feather`) is derived from those records and is therefore also not
-redistributed; it is regenerated by `features.ipynb` from the raw inputs.
+## Data
 
-## License
-
-Code: MIT (see LICENSE). Derived result tables: CC-BY-4.0.
+Raw observations come from the Turkish State Meteorological Service (MGM, https://www.mgm.gov.tr) and
+cannot be redistributed; equivalent records can be requested from MGM. The engineered feature matrix is
+derived from them and is therefore not included either. Derived outputs (per-day predictions, metrics,
+importance tables) are in the data record cited below.
 
 ## Citation
 
-If you use this code or the derived results, please cite the manuscript and this deposit
-(DOI to be added on publication).
+Code: https://doi.org/10.5281/zenodo.21178711 · Data: https://doi.org/10.5281/zenodo.21184121
+(both DOIs always resolve to the latest version).
+
+## Licence
+
+Code: MIT (see `LICENSE`). Derived result tables: CC BY 4.0.
