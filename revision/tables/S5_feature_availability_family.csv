@@ -1,0 +1,98 @@
+group,historical_window,relative_to_origin,n,examples
+local_direction,day t,before or at the origin,70,Sarkoy mean wind dir cat E; Sarkoy mean wind dir cat N; Sarkoy mean wind dir cat NE
+local_wind_eng,day t,before or at the origin,43,Max wind angle sin; Max wind angle cos; Mean wind angle sin
+local_met_eng,day t,before or at the origin,22,Sarkoy temp mean to max ratio; Sarkoy temp mean relative pos; Sarkoy temp max to mean ratio
+calendar,calendar date of day t+1 (deterministic),"deterministic, known in advance",19,Day of week; Day of year sin; Day of year cos
+ganos,day t,before or at the origin,14,Max humidity at ganos; Max temperature at ganos; Min humidity at ganos
+local_met,day t−2,before or at the origin,10,Mean temperature (t−2); Min temperature (t−2); Max temperature (t−2)
+local_met,day t−1,before or at the origin,10,Mean temperature (t−1); Min temperature (t−1); Max temperature (t−1)
+ganos,day t−2,before or at the origin,9,Mean temperature at ganos (t−2); Max temperature at ganos (t−2); Min temperature at ganos (t−2)
+local_met,day t,before or at the origin,9,Max pressure; Max humidity; Max temperature
+ganos,day t−1,before or at the origin,9,Mean temperature at ganos (t−1); Max temperature at ganos (t−1); Min temperature at ganos (t−1)
+local_direction,day t−1,before or at the origin,8,Lag1 sarkoy mean wind dir cat E; Lag1 sarkoy mean wind dir cat N; Lag1 sarkoy mean wind dir cat NE
+neighbour_eng:cerkezkoy,day t,before or at the origin,8,|Çerkezköy max u|; (Çerkezköy max u)²; |Çerkezköy max v|
+neighbour_eng:hayrabolu,day t,before or at the origin,8,|Hayrabolu max u|; (Hayrabolu max u)²; |Hayrabolu max v|
+neighbour_eng:enez,day t,before or at the origin,8,|Enez max u|; (Enez max u)²; |Enez max v|
+neighbour_eng:havsa,day t,before or at the origin,8,|Havsa max u|; (Havsa max u)²; |Havsa max v|
+neighbour_eng:edirne,day t,before or at the origin,8,|Edirne max u|; (Edirne max u)²; |Edirne max v|
+neighbour_eng:corlu,day t,before or at the origin,8,|Çorlu max u|; (Çorlu max u)²; |Çorlu max v|
+neighbour_eng:ipsala,day t,before or at the origin,8,|İpsala max u|; (İpsala max u)²; |İpsala max v|
+neighbour_eng:meric,day t,before or at the origin,8,|Meriç max u|; (Meriç max u)²; |Meriç max v|
+neighbour_eng:saray,day t,before or at the origin,8,|Saray max u|; (Saray max u)²; |Saray max v|
+neighbour_eng:tekirdag,day t,before or at the origin,8,|Tekirdağ max u|; (Tekirdağ max u)²; |Tekirdağ max v|
+neighbour_eng:uzunkopru,day t,before or at the origin,8,|Uzunköprü max u|; (Uzunköprü max u)²; |Uzunköprü max v|
+neighbour_eng:muratli,day t,before or at the origin,8,|Muratlı max u|; (Muratlı max u)²; |Muratlı max v|
+neighbour_eng:marmara,day t,before or at the origin,8,|Marmara Ereğlisi max u|; (Marmara Ereğlisi max u)²; |Marmara Ereğlisi max v|
+neighbour_eng:malkara,day t,before or at the origin,8,|Malkara max u|; (Malkara max u)²; |Malkara max v|
+neighbour_eng:lalapasa,day t,before or at the origin,8,|Lalapaşa max u|; (Lalapaşa max u)²; |Lalapaşa max v|
+neighbour_eng:kesan,day t,before or at the origin,8,|Keşan max u|; (Keşan max u)²; |Keşan max v|
+physics,day t,before or at the origin,7,Air density; Potential temp c; Wind power proxy
+local_raw_wind,day t−2,before or at the origin,6,Şarköy mean wind speed (t−2); Şarköy max wind speed (t−2); Şarköy mean u (t−2)
+local_raw_wind,day t−1,before or at the origin,6,Şarköy mean wind speed (t−1); Şarköy max wind speed (t−1); Şarköy mean u (t−1)
+local_raw_wind,day t,before or at the origin,6,Şarköy max wind speed; Şarköy mean wind speed; Şarköy max u
+lunar,calendar date of day t+1 (deterministic),"deterministic, known in advance",4,Lunar sin; Lunar cos; Is full moon
+neighbour_eng:marmara,day t−1,before or at the origin,4,Marmara Ereğlisi mean u (t−1); Marmara Ereğlisi max u (t−1); Marmara Ereğlisi mean v (t−1)
+neighbour_raw:lalapasa,day t,before or at the origin,4,Lalapaşa max u; Lalapaşa max v; Lalapaşa mean u
+neighbour_raw:malkara,day t,before or at the origin,4,Malkara max u; Malkara max v; Malkara mean u
+neighbour_raw:meric,day t,before or at the origin,4,Meriç max u; Meriç max v; Meriç mean u
+neighbour_raw:marmara,day t,before or at the origin,4,Marmara Ereğlisi max u; Marmara Ereğlisi max v; Marmara Ereğlisi mean u
+neighbour_raw:muratli,day t,before or at the origin,4,Muratlı max u; Muratlı max v; Muratlı mean u
+neighbour_raw:ipsala,day t,before or at the origin,4,İpsala max u; İpsala max v; İpsala mean u
+neighbour_raw:kesan,day t,before or at the origin,4,Keşan max u; Keşan max v; Keşan mean u
+neighbour_raw:havsa,day t,before or at the origin,4,Havsa max u; Havsa max v; Havsa mean u
+neighbour_raw:tekirdag,day t,before or at the origin,4,Tekirdağ max u; Tekirdağ max v; Tekirdağ mean u
+neighbour_raw:saray,day t,before or at the origin,4,Saray max u; Saray max v; Saray mean u
+neighbour_raw:uzunkopru,day t,before or at the origin,4,Uzunköprü max u; Uzunköprü max v; Uzunköprü mean u
+neighbour_raw:hayrabolu,day t,before or at the origin,4,Hayrabolu max u; Hayrabolu max v; Hayrabolu mean u
+neighbour_raw:edirne,day t,before or at the origin,4,Edirne max u; Edirne max v; Edirne mean u
+neighbour_raw:enez,day t,before or at the origin,4,Enez max u; Enez max v; Enez mean u
+neighbour_raw:corlu,day t,before or at the origin,4,Çorlu max u; Çorlu max v; Çorlu mean u
+neighbour_eng:meric,day t−1,before or at the origin,4,Meriç mean u (t−1); Meriç max u (t−1); Meriç mean v (t−1)
+neighbour_eng:muratli,day t−1,before or at the origin,4,Muratlı mean u (t−1); Muratlı max u (t−1); Muratlı mean v (t−1)
+neighbour_eng:lalapasa,day t−1,before or at the origin,4,Lalapaşa mean u (t−1); Lalapaşa max u (t−1); Lalapaşa mean v (t−1)
+neighbour_eng:kesan,day t−1,before or at the origin,4,Keşan mean u (t−1); Keşan max u (t−1); Keşan mean v (t−1)
+neighbour_eng:ipsala,day t−1,before or at the origin,4,İpsala mean u (t−1); İpsala max u (t−1); İpsala mean v (t−1)
+neighbour_eng:malkara,day t−1,before or at the origin,4,Malkara mean u (t−1); Malkara max u (t−1); Malkara mean v (t−1)
+neighbour_eng:uzunkopru,day t−1,before or at the origin,4,Uzunköprü mean u (t−1); Uzunköprü max u (t−1); Uzunköprü mean v (t−1)
+neighbour_eng:tekirdag,day t−1,before or at the origin,4,Tekirdağ mean u (t−1); Tekirdağ max u (t−1); Tekirdağ mean v (t−1)
+neighbour_raw:cerkezkoy,day t,before or at the origin,4,Çerkezköy max u; Çerkezköy max v; Çerkezköy mean u
+neighbour_eng:hayrabolu,day t−1,before or at the origin,4,Hayrabolu mean u (t−1); Hayrabolu max u (t−1); Hayrabolu mean v (t−1)
+neighbour_eng:saray,day t−1,before or at the origin,4,Saray mean u (t−1); Saray max u (t−1); Saray mean v (t−1)
+neighbour_eng:enez,day t−1,before or at the origin,4,Enez mean u (t−1); Enez max u (t−1); Enez mean v (t−1)
+neighbour_eng:havsa,day t−1,before or at the origin,4,Havsa mean u (t−1); Havsa max u (t−1); Havsa mean v (t−1)
+neighbour_eng:corlu,day t−1,before or at the origin,4,Çorlu mean u (t−1); Çorlu max u (t−1); Çorlu mean v (t−1)
+neighbour_eng:edirne,day t−1,before or at the origin,4,Edirne mean u (t−1); Edirne max u (t−1); Edirne mean v (t−1)
+neighbour_eng:cerkezkoy,day t−1,before or at the origin,4,Çerkezköy mean u (t−1); Çerkezköy max u (t−1); Çerkezköy mean v (t−1)
+local_wind_eng,all days up to day t,before or at the origin,3,Days since high wind; Days since low wind; Consecutive high wind days
+local_wind_eng,trailing 21 days (ends on day t),before or at the origin,3,Mean wind speed roll 21 volatility; Mean wind speed ema 21; Mean wind speed dev from ema 21
+local_wind_eng,trailing 14 days (ends on day t),before or at the origin,3,Mean wind speed roll 14 volatility; Mean wind speed ema 14; Mean wind speed dev from ema 14
+local_wind_eng,trailing 30 days (ends on day t),before or at the origin,3,Mean wind speed roll 30 volatility; Mean wind speed ema 30; Mean wind speed dev from ema 30
+local_met_eng,trailing 7 days (ends on day t),before or at the origin,3,Vol season sin 7; Vol season cos 7; Total precipitation roll 7 volatility
+local_wind_eng,trailing 7 days (ends on day t),before or at the origin,3,Mean wind speed roll 7 volatility; Mean wind speed ema 7; Mean wind speed dev from ema 7
+ganos,all days up to day t,before or at the origin,2,Ganos days since last rain; Ganos consecutive rain event days
+local_met_eng,all days up to day t,before or at the origin,2,Sarkoy days since last rain; Sarkoy consecutive rain event days
+local_met_eng,trailing 14 days (ends on day t),before or at the origin,2,Vol season sin 14; Vol season cos 14
+local_met_eng,trailing 30 days (ends on day t),before or at the origin,2,Vol season sin 30; Vol season cos 30
+local_met_eng,trailing 3 days (ends on day t),before or at the origin,2,Vol season sin 3; Vol season cos 3
+local_wind_eng,trailing 3 days (ends on day t),before or at the origin,2,Mean wind speed roll 3 volatility; Mean wind speed ema 3
+local_wind_eng,day t−2,before or at the origin,1,Şarköy mid wind speed (t−2)
+ganos,1 January to day t,before or at the origin,1,Ganos annual cum precip
+local_wind_eng,day t−1,before or at the origin,1,Şarköy mid wind speed (t−1)
+local_direction,all days up to day t,before or at the origin,1,Sarkoy wind dir streak
+local_met_eng,1 January to day t,before or at the origin,1,Sarkoy annual cum precip
+neighbour_eng:marmara,trailing 7 days (ends on day t),before or at the origin,1,7-d corr. Şarköy–Marmara Ereğlisi u
+neighbour_eng:malkara,trailing 7 days (ends on day t),before or at the origin,1,7-d corr. Şarköy–Malkara u
+neighbour_eng:lalapasa,trailing 7 days (ends on day t),before or at the origin,1,7-d corr. Şarköy–Lalapaşa u
+neighbour_eng:kesan,trailing 7 days (ends on day t),before or at the origin,1,7-d corr. Şarköy–Keşan u
+neighbour_eng:ipsala,trailing 7 days (ends on day t),before or at the origin,1,7-d corr. Şarköy–İpsala u
+neighbour_eng:hayrabolu,trailing 7 days (ends on day t),before or at the origin,1,7-d corr. Şarköy–Hayrabolu u
+neighbour_eng:enez,trailing 7 days (ends on day t),before or at the origin,1,7-d corr. Şarköy–Enez u
+neighbour_eng:havsa,trailing 7 days (ends on day t),before or at the origin,1,7-d corr. Şarköy–Havsa u
+neighbour_eng:edirne,trailing 7 days (ends on day t),before or at the origin,1,7-d corr. Şarköy–Edirne u
+neighbour_eng:corlu,trailing 7 days (ends on day t),before or at the origin,1,7-d corr. Şarköy–Çorlu u
+neighbour_eng:cerkezkoy,trailing 7 days (ends on day t),before or at the origin,1,7-d corr. Şarköy–Çerkezköy u
+neighbour_eng:uzunkopru,trailing 7 days (ends on day t),before or at the origin,1,7-d corr. Şarköy–Uzunköprü u
+neighbour_eng:meric,trailing 7 days (ends on day t),before or at the origin,1,7-d corr. Şarköy–Meriç u
+neighbour_eng:tekirdag,trailing 7 days (ends on day t),before or at the origin,1,7-d corr. Şarköy–Tekirdağ u
+neighbour_eng:saray,trailing 7 days (ends on day t),before or at the origin,1,7-d corr. Şarköy–Saray u
+neighbour_eng:muratli,trailing 7 days (ends on day t),before or at the origin,1,7-d corr. Şarköy–Muratlı u

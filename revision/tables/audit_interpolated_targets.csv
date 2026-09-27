@@ -1,0 +1,8 @@
+date,split,target_date,target_observed
+2017-09-23,train,2017-09-24,False
+2017-09-24,train,2017-09-25,False
+2017-09-25,train,2017-09-26,False
+2021-02-05,train,2021-02-06,False
+2021-02-06,train,2021-02-07,False
+2023-09-20,validation,2023-09-21,False
+2024-12-30,test,2024-12-31,False

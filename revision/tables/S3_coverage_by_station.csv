@@ -1,0 +1,22 @@
+station,mean,max,longest_gap_days,used_in_models
+Edirne,0.17,0.67,15,yes
+Enez,0.44,0.47,6,yes
+Ganos,0.93,1.07,9,yes
+Hamzabeyli,15.97,15.99,426,no (>10% missing)
+Havalimanı,22.9,32.62,742,no (>10% missing)
+Havsa,1.63,1.68,10,yes
+Hayrabolu,0.28,0.3,4,yes
+Kemal,15.69,15.69,426,no (>10% missing)
+Keşan,2.65,2.68,51,yes
+Lalapaşa,0.39,0.4,4,yes
+Malkara,2.35,2.41,18,yes
+Marmara Ereğlisi,0.6,0.6,8,yes
+Meriç,0.83,0.87,15,yes
+Muratlı,0.67,0.67,8,yes
+Saray,2.21,2.25,20,yes
+Tekirdağ,0.0,0.0,0,yes
+Uzunköprü,1.44,1.51,21,yes
+Çerkezköy,6.81,7.07,109,yes
+Çorlu,3.86,5.13,73,yes
+İpsala,3.85,3.92,18,yes
+Şarköy,0.49,1.48,30,yes

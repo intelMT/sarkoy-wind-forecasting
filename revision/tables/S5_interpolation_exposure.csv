@@ -1,0 +1,4 @@
+split,days,days_with_any_gap,pct_days_with_gap,pct_cells_filled
+train (<2023),2252,397,17.63,1.074
+validation (2023),365,126,34.52,1.744
+test (2024),366,275,75.14,4.581
