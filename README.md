@@ -28,7 +28,7 @@ The raw station records are not included (see *Data*).
 |---|---|
 | `features.ipynb` | Builds the 559-predictor matrix (`df_final_features.feather`) from the raw records |
 | `modelling.ipynb`, `visualization.ipynb` | Models, Optuna searches and figures of the original submission |
-| `model_results.csv`, `predictions/`, `models/`, `best_params.json`, `*importance*.csv`, `vif_results.csv` | Outputs of the original submission |
+| `best_params.json`, `best_xgboost_model.json`, `best_xgboost_model.pkl` | Hyperparameters and the fitted XGBoost model of the original submission; its per-day outputs are in the v1 data record |
 | `revision/revision_utils.py` | Shared helpers: feature groups, model factory, bootstrap, Diebold–Mariano test, month-wise scaling, results store |
 | `revision/notebooks/06_audit_calendar_and_leakage.ipynb` | Calendar and one-day-offset audit, coverage by station and variable, gap list, feature availability |
 | `revision/notebooks/07_leakage_free_rebuild_and_holdout.ipynb` | Leakage-free matrix, 2024 hold-out table, imputation sensitivity |
