@@ -516,7 +516,7 @@ def savefig(fig, rev, name):
     print('saved figure', name)
 
 # ----------------------------------------------------------------------------------------------
-# Results store: every number quoted in the revised documents is written here under a {{KEY}}
+# Results store: summary values of a notebook, saved as JSON (each notebook sets its own file)
 # ----------------------------------------------------------------------------------------------
 class Results:
     def __init__(self, rev):
